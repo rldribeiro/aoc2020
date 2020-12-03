@@ -75,20 +75,20 @@ namespace Solvers
                     if (input[i] + input[j] == 2020)
                     {
                         SolutionNumbersA[0] = input[i];
-                        SolutionNumbersA[1] = input[j];                        
+                        SolutionNumbersA[1] = input[j];      
+                        
                         SolutionA = input[i] * input[j];
 
                         found = true;
                         break;
                     }
-
                     if (input[i] + input[j] > 2020)
                         break;
                 }
-
                 if (found)
                     break;
             }
+
             timer.Stop();
             ElapsedTimeA = timer;
         }
@@ -117,6 +117,7 @@ namespace Solvers
                             SolutionNumbersB[0] = input[i];
                             SolutionNumbersB[1] = input[j];
                             SolutionNumbersB[2] = input[k];
+
                             SolutionB = input[i] * input[j] * input[k];
 
                             found = true;
@@ -125,10 +126,7 @@ namespace Solvers
 
                         if (input[i] + input[j] + input[k] > 2020)
                             break;
-                    }                    
-
-                    if (input[i] + input[j] > 2020)
-                        break;
+                    }
                 }
 
                 if (found)
