@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="AdventOfCode2020.Day02Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdventOfCode2020"
+             xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"   
+             mc:Ignorable="d" 
+             d:DesignHeight="370" d:DesignWidth="700">
+
+    <UserControl.Resources>
+        <vm:Day02VM x:Key="day02vm" />
+        <!--COLORS-->
+        <SolidColorBrush x:Key="ActiveGreen" Color="#FF00FF00"/>
+        <SolidColorBrush x:Key="DimGreen" Color="#FF53873E"/>
+        <SolidColorBrush x:Key="Black" Color="Black"/>
+
+    </UserControl.Resources>
+
+    <Grid Background="Black" DataContext="{StaticResource day02vm}">
+        <!--INPUT-->
+        <TextBox HorizontalAlignment="Left" Height="298" Margin="42,42,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="200"
+                             AcceptsReturn="True"
+                             Text="{Binding RawInput}" Background="Black" BorderBrush="Lime" Foreground="{StaticResource ActiveGreen}"/>
+
+        <Button Content="[ Solve ]" HorizontalAlignment="Left" Margin="107,343,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.62,-0.45"
+                            Command="{Binding Solve02Command}" Background="Black" BorderBrush="{x:Null}" Foreground="{StaticResource ActiveGreen}"/>
+
+        <!--PART A-->
+        <TextBlock Text="[ Part A ]" HorizontalAlignment="Left" Margin="290,46,0,0" VerticalAlignment="Top" Foreground="{StaticResource DimGreen}" FontSize="20"/>
+
+
+        <Label Content="ELAPSED TIME (ms)" HorizontalAlignment="Left" Margin="284,138,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTimeA}" HorizontalAlignment="Left" Margin="440,145,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <Label Content="(ticks)" HorizontalAlignment="Left" Margin="377,156,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTicksA}" HorizontalAlignment="Left" Margin="440,164,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
+
+        <TextBlock Text="{Binding ResultA}" HorizontalAlignment="Left" Height="51" Margin="290,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="36"
+                                Background="Black" Foreground="{StaticResource ActiveGreen}"/>
+
+        <!--PART B-->
+        <TextBlock Text="[ Part B ]" HorizontalAlignment="Left" Margin="290,210,0,0" VerticalAlignment="Top" Foreground="{StaticResource DimGreen}" FontSize="20"/>
+
+        <Label Content="ELAPSED TIME (ms)" HorizontalAlignment="Left" Margin="284,291,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTimeB}" HorizontalAlignment="Left" Margin="440,297,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+
+        <Label Content="(ticks)" HorizontalAlignment="Left" Margin="378,310,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTicksB}" HorizontalAlignment="Left" Margin="440,316,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
+
+        <TextBlock Text="{Binding ResultB}" HorizontalAlignment="Left" Height="51" Margin="290,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="36"
+                                Background="Black" Foreground="{StaticResource ActiveGreen}"/>
+    </Grid>
+</UserControl>
