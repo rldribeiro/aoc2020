@@ -44,8 +44,8 @@ namespace Solvers
             timer.Start();
 
             int numTreees = 0;
-
             int currIdx = 0;
+
             for (int i = 0; i < input.Count(); i += slope2)
             {
                 string currStr = input[i].Trim();
@@ -54,13 +54,9 @@ namespace Solvers
                     numTreees++;
 
                 if (currIdx + slope1 > currStr.Length - 1)
-                {
-                    currIdx = slope1 - (currStr.Length - currIdx);
-                }
-                else
-                {
-                    currIdx += slope1;
-                }
+                    currIdx = slope1 - (currStr.Length - currIdx);                
+                else                
+                    currIdx += slope1;                
             }
 
             timer.Stop();
@@ -90,10 +86,8 @@ namespace Solvers
                 (1,2)
             };            
             
-            foreach(var slope in slopes)
-            {
+            foreach(var slope in slopes)            
                 SolutionB *= SolveA(input, slope.Item1, slope.Item2);
-            }
 
             timer.Stop();
             ElapsedTimeB = timer;

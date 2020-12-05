@@ -55,12 +55,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControls\DayControl.xaml.cs">
+      <DependentUpon>DayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Day04Control.xaml.cs">
+      <DependentUpon>Day04Control.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Day02Control.xaml.cs">
       <DependentUpon>Day02Control.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Day03Control.xaml.cs">
       <DependentUpon>Day03Control.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControls\DayControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Day04Control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\Day01Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

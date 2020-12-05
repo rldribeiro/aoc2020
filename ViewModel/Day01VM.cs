@@ -32,6 +32,8 @@ namespace ViewModel
         private int widthB01;
         private int widthB02;
         private int widthB03;
+        private List<(int, int)> attemptsA;
+        private List<(int, int, int)> attemptsB;
 
         #region Binding Properties
 
@@ -127,6 +129,18 @@ namespace ViewModel
                 {
                     widthA02 = value;
                     OnPropertyChanged("WidthA02");
+                }
+            }
+        }
+        public List<(int, int)> AttemptsA
+        {
+            get { return attemptsA; }
+            set
+            {
+                if (value != attemptsA)
+                {
+                    attemptsA = value;
+                    OnPropertyChanged("AttemptsA");
                 }
             }
         }
@@ -239,7 +253,18 @@ namespace ViewModel
                 }
             }
         }
-
+        public List<(int, int, int)> AttemptsB
+        {
+            get { return attemptsB; }
+            set
+            {
+                if (value != attemptsB)
+                {
+                    attemptsB = value;
+                    OnPropertyChanged("AttemptsB");
+                }
+            }
+        }
         #endregion
 
         #region INotifyPropertyChanged implementation 
@@ -284,6 +309,7 @@ namespace ViewModel
             ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
             NumberA01 = solver.SolutionNumbersA[0];
             NumberA02 = solver.SolutionNumbersA[1];
+            AttemptsA = solver.AttemptsA;
 
             ResultB = solver.SolutionB;
             ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
@@ -291,6 +317,7 @@ namespace ViewModel
             NumberB01 = solver.SolutionNumbersB[0];
             NumberB02 = solver.SolutionNumbersB[1];
             NumberB03 = solver.SolutionNumbersB[2];
+            AttemptsB = solver.AttemptsB;
 
             // Set bars (I WANT TO ANIMATE THIS SOMWHOW!!!)
             WidthA01 = NumberA01 / 5;

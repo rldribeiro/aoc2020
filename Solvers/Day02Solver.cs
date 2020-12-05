@@ -23,6 +23,7 @@ namespace Solvers
         #region Properties
 
         #region Part A        
+
         public int SolutionA { get; set; }        
         public Stopwatch ElapsedTimeA { get; set; }
 
@@ -46,18 +47,13 @@ namespace Solvers
             SolutionA = 0;
 
             for (int i = 0; i < input.Count(); i++)
-            {                
+            {
                 string[] row = input[i].Split(' ');
-                string[] limits = row[0].Split('-');
-                int min = 0;
-                int max = 0;
-                int.TryParse(limits[0], out min);
-                int.TryParse(limits[1], out max);
-                char letter = row[1].ToCharArray()[0];
-                string pass = row[2];
-                int oc = pass.Count(x => x == letter);
+                HackedString hacked = HackTheString(row);
 
-                if (oc >= min && oc <= max)
+                int oc = hacked.pass.Count(x => x == hacked.letter);
+
+                if (oc >= hacked.pos1 && oc <= hacked.pos2)
                     SolutionA++;
             }
 
@@ -73,17 +69,11 @@ namespace Solvers
             SolutionB = 0;
 
             for (int i = 0; i < input.Count(); i++)
-            {
+            {                
                 string[] row = input[i].Split(' ');
-                string[] limits = row[0].Split('-');
-                int pos1 = 0;
-                int pos2 = 0;
-                int.TryParse(limits[0], out pos1);
-                int.TryParse(limits[1], out pos2);
-                char letter = row[1].ToCharArray()[0];
-                string pass = row[2];
+                HackedString hacked = HackTheString(row);                
 
-                if (pass[pos1 - 1] == letter ^ pass[pos2 - 1] == letter)
+                if (hacked.pass[hacked.pos1 - 1] == hacked.letter ^ hacked.pass[hacked.pos2 - 1] == hacked.letter)
                     SolutionB++;
             }
 
@@ -91,6 +81,31 @@ namespace Solvers
             ElapsedTimeB = timer;
         }
 
+        #endregion
+
+        #region Help ME!
+
+        private HackedString HackTheString(string[] row)
+        {
+            var hacked = new HackedString();
+
+            string[] limits = row[0].Split('-');            
+            int.TryParse(limits[0], out hacked.pos1);
+            int.TryParse(limits[1], out hacked.pos2);
+            hacked.letter = row[1].ToCharArray()[0];
+            hacked.pass = row[2];
+
+            return hacked;
+        }
+
+
+        private struct HackedString
+        {
+            public int pos1;
+            public int pos2;
+            public char letter;
+            public string pass;
+        }
         #endregion
     }
 }

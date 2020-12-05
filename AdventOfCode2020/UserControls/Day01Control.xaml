@@ -14,10 +14,13 @@
         <SolidColorBrush x:Key="ActiveGreen" Color="#FF00FF00"/>
         <SolidColorBrush x:Key="DimGreen" Color="#FF53873E"/>
         <SolidColorBrush x:Key="Black" Color="Black"/>
-
     </UserControl.Resources>
 
-    <Grid Background="Black" DataContext="{StaticResource day01vm}">
+    <UserControl.DataContext>
+        <vm:Day01VM />
+    </UserControl.DataContext>
+
+    <Grid Background="Black" >
         <!--INPUT-->
         <TextBox HorizontalAlignment="Left" Height="298" Margin="42,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99"
                              AcceptsReturn="True"
@@ -41,8 +44,8 @@
         <TextBlock Text="{Binding ResultA}" HorizontalAlignment="Left" Height="51" Margin="387,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" FontSize="36"
                                 Background="Black" Foreground="{StaticResource ActiveGreen}"/>
         
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="393,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA01}"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="393,115,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA02}"/>
+        <Rectangle Fill="#FFF4F4F5" Name="RecA01" HorizontalAlignment="Left" Height="4" Margin="393,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA01}"/>
+        <Rectangle Fill="#FFF4F4F5" Name="RecA02" HorizontalAlignment="Left" Height="4" Margin="393,115,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA02}"/>
         
         <!--PART B-->
         <TextBlock Text="[ Part B ]" HorizontalAlignment="Left" Margin="197,207,0,0" VerticalAlignment="Top" Foreground="{StaticResource DimGreen}" FontSize="20"/>

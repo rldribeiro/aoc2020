@@ -3,24 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:AdventOfCode2020"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
-        xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"        
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Advent of Code 2020" Height="450" Width="800">
+        Title="Advent of Code 2020" Height="478.779" Width="800">
 
     <Window.Resources>
-        <vm:Day01VM x:Key="day01vm" />
         <!--COLORS-->
         <SolidColorBrush x:Key="ActiveGreen" Color="#FF00FF00"/>
         <SolidColorBrush x:Key="DimGreen" Color="#FF53873E"/>
         <SolidColorBrush x:Key="Black" Color="Black"/>
     </Window.Resources>
 
-    
+
 
     <Grid Background="Black">
         <TabControl HorizontalAlignment="Left" Height="409" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Background="Black">
-            <TabItem Header="[ Day 01 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
+            <!--<TabItem Header="[ Day 01 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
                 <local:Day01Control />
             </TabItem>
             <TabItem Header="[ Day 02 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
@@ -29,7 +27,13 @@
             <TabItem Header="[ Day 03 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
                 <local:Day03Control />
             </TabItem>
+            <TabItem Header="[ Day 04 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
+                <local:Day04Control />
+            </TabItem>-->
+            <TabItem Header="[ More Days ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
+                <local:DayControl />
+            </TabItem>
         </TabControl>
-
+        <ComboBox HorizontalAlignment="Left" Margin="661,415,0,0" VerticalAlignment="Top" Width="120" Background="Black" BorderBrush="#FF46E20C" Foreground="#FF46E20C"/>
     </Grid>
 </Window>

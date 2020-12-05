@@ -7,8 +7,8 @@
     <ProjectGuid>{41A18768-2A53-40A9-A58D-3417DF86D130}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Day01</RootNamespace>
-    <AssemblyName>Day01</AssemblyName>
+    <RootNamespace>Solvers</RootNamespace>
+    <AssemblyName>Solvers</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,10 +41,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DaySolver.cs" />
+    <Compile Include="Day04Solver.cs" />
     <Compile Include="Day03Solver.cs" />
     <Compile Include="Day02Solver.cs" />
     <Compile Include="Day01Solver.cs" />
+    <Compile Include="Wizards\Fabio\Fabio01.cs" />
+    <Compile Include="Wizards\Fabio\Fabio02.cs" />
+    <Compile Include="Wizards\Fabio\Fabio03.cs" />
+    <Compile Include="Wizards\Fabio\Fabio04.cs" />
+    <Compile Include="Wizards\Goncalo\Goncalo04.cs" />
+    <Compile Include="Wizards\Goncalo\Goncalo03.cs" />
+    <Compile Include="Wizards\Goncalo\Goncalo02.cs" />
+    <Compile Include="Wizards\Goncalo\Goncalo01.cs" />
+    <Compile Include="Wizards\Leandro\Leandro01.cs" />
+    <Compile Include="Wizards\Leandro\Leandro02.cs" />
+    <Compile Include="Wizards\Leandro\Leandro03.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WizardNames.cs" />
+    <Compile Include="Wizards\IWizard.cs" />
+    <Compile Include="Wizards\Leandro\Leandro04.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
