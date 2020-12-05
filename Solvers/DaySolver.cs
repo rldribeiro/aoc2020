@@ -58,7 +58,8 @@ namespace Solvers
             }
             catch
             {
-                MessageBox.Show($"For some reason, it was not possible to solve Part A:\neither the wizard {CurrentWizard.Name} didn't write it, or the magic was bullshit.");
+                string wizName = CurrentWizard == null ? string.Empty : CurrentWizard.Name;
+                MessageBox.Show($"For some reason, it was not possible to solve Part A:\neither the wizard {wizName} didn't write it, or the magic was bullshit.");
             }
         }
 
@@ -76,7 +77,8 @@ namespace Solvers
             }
             catch
             {
-                MessageBox.Show($"For some reason, it was not possible to solve Part B:\neither the wizard {CurrentWizard.Name} didn't write it, or the magic was bullshit.");
+                string wizName = CurrentWizard == null ? string.Empty : CurrentWizard.Name;
+                MessageBox.Show($"For some reason, it was not possible to solve Part B:\neither the wizard {wizName} didn't write it, or the magic was bullshit.");
             }            
         }
 

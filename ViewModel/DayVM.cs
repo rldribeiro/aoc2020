@@ -192,8 +192,8 @@ namespace ViewModel
             solver = new DaySolver(wizard);
 
                 // A
-                solver.SolveA(rawInput);
-                ResultA = solver.SolutionA;
+                solver.SolveA(rawInput);            
+                ResultA = solver.SolutionA;                                            
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
                 ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
 
