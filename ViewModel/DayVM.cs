@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ViewModel.Commands;
 
 namespace ViewModel
@@ -12,6 +13,8 @@ namespace ViewModel
     public class DayVM : INotifyPropertyChanged
     {
         private DaySolver solver;
+        private string selectedWizard = Hogwarts.CurrentWizards[0];
+        private int selectedDay = 1;
 
         private string rawInput;
 
@@ -37,23 +40,11 @@ namespace ViewModel
                     OnPropertyChanged("RawInput");
                 }
             }
-        }
-
-        public List<int> Days
-        {
-            get
-            {
-                return new List<int>{1,2,3,4};
-            }
         }        
-
         public List<string> Wizards
         {
-            get { return new List<string> { "Fábio", "Gonçalo", "Leandro"}; }            
-        }
-
-        private string selectedWizard = "Fábio";
-
+            get { return Hogwarts.CurrentWizards; }
+        }        
         public string SelectedWizard
         {
             get { return selectedWizard; }
@@ -66,9 +57,13 @@ namespace ViewModel
                 }
             }
         }
-
-        private int selectedDay = 1;
-
+        public List<int> Days
+        {
+            get
+            {
+                return Hogwarts.CurrentDays;
+            }
+        }
         public int SelectedDay
         {
             get { return selectedDay; }
@@ -83,7 +78,6 @@ namespace ViewModel
 
             }
         }
-
 
         // A
         public int ResultA
@@ -193,10 +187,10 @@ namespace ViewModel
         internal void Solve(string[] input)
         {
             string[] rawInput = RawInput.Split('\n');
-            solver = new DaySolver(selectedWizard, selectedDay);
+            Wizard wizard = Hogwarts.SummonWizard(selectedWizard, selectedDay);
 
-            try
-            {
+            solver = new DaySolver(wizard);
+
                 // A
                 solver.SolveA(rawInput);
                 ResultA = solver.SolutionA;
@@ -208,11 +202,7 @@ namespace ViewModel
                 ResultB = solver.SolutionB;
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
-            }
-            catch
-            {
-                // Write some error message
-            }
+
             return;
         }
 

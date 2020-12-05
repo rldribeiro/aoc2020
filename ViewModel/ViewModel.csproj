@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,15 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\SolveCommand.cs" />
-    <Compile Include="Commands\Solve04Command.cs" />
-    <Compile Include="Commands\Solve03Command.cs" />
-    <Compile Include="Commands\Solve02Command.cs" />
-    <Compile Include="Commands\Solve01Command.cs" />
-    <Compile Include="Day02VM.cs" />
-    <Compile Include="Day01VM.cs" />
     <Compile Include="DayVM.cs" />
-    <Compile Include="Day04VM.cs" />
-    <Compile Include="Day03VM.cs" />
+    <Compile Include="Hogwarts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

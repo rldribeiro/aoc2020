@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Solvers
 {
-    public class Goncalo01 : IWizard
+    public class Goncalo01 : Wizard
     {
-        public int SolvePartOne(string[] input)
+        public Goncalo01(string name) : base(name)
+        {
+        }
+
+        public override int SolvePartOne(string[] input)
         {
             throw new NotImplementedException();
         }
 
-        public int SolvePartTwo(string[] input)
+        public override int SolvePartTwo(string[] input)
         {
             throw new NotImplementedException();
         }

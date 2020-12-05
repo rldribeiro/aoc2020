@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Solvers
 {
-    public class Leandro02 : IWizard
+    public class Leandro02 : Wizard
     {
-        public int SolvePartOne(string[] input)
+        public Leandro02(string name) : base(name)
+        {
+        }
+
+        public override int SolvePartOne(string[] input)
         {
             int solution = 0;
 
@@ -26,7 +30,7 @@ namespace Solvers
             return solution;
         }
 
-        public int SolvePartTwo(string[] input)
+        public override int SolvePartTwo(string[] input)
         {
             int solution = 0;
 

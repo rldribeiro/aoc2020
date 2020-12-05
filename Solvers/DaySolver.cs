@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Solvers
 {
@@ -15,47 +16,16 @@ namespace Solvers
     {
         #region Constructor
 
-        public DaySolver(string wizardName, int day)
+        public DaySolver(Wizard wizard)
         {
-            // fazer escolha com wizardId e day
-            CurrentWizard = ChoseWizard(wizardName, day);
-        }
-
-        private IWizard ChoseWizard(string wizardName, int day)
-        {
-            IWizard wizard = null;
-            switch (day)
-            {
-                case 1:
-                    if (wizardName.Equals(WizardNames.FABIO)) return new Fabio01();
-                    if (wizardName.Equals(WizardNames.GONCALO)) return new Goncalo01();
-                    if (wizardName.Equals(WizardNames.LEANDRO)) return new Leandro01();
-                    break;
-                case 2:
-                    if (wizardName.Equals(WizardNames.FABIO)) return new Fabio02();
-                    if (wizardName.Equals(WizardNames.GONCALO)) return new Goncalo02();
-                    if (wizardName.Equals(WizardNames.LEANDRO)) return new Leandro02();
-                    break;
-                case 3:
-                    if (wizardName.Equals(WizardNames.FABIO)) return new Fabio03();
-                    if (wizardName.Equals(WizardNames.GONCALO)) return new Goncalo03();
-                    if (wizardName.Equals(WizardNames.LEANDRO)) return new Leandro03();
-                    break;
-                case 4:
-                    if (wizardName.Equals(WizardNames.FABIO)) return new Fabio04();
-                    if (wizardName.Equals(WizardNames.GONCALO)) return new Goncalo04();
-                    if (wizardName.Equals(WizardNames.LEANDRO)) return new Leandro04();
-                    break;
-            }
-
-            return wizard;
+            CurrentWizard = wizard;
         }
 
         #endregion
 
         #region Properties
 
-        public IWizard CurrentWizard { get; set; }
+        public Wizard CurrentWizard { get; set; }
 
         #region Part A        
         public int SolutionA { get; set; }
@@ -79,18 +49,33 @@ namespace Solvers
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            SolutionA = CurrentWizard.SolvePartOne(input);
+            try
+            {
+                SolutionA = CurrentWizard.SolvePartOne(input);
+            }
+            catch
+            {
+                MessageBox.Show($"For some reason, it was not possible to solve Part A:\neither the wizard {CurrentWizard.Name} didn't write it, or the magic was bullshit.");
+            }
 
             timer.Stop();
             ElapsedTimeA = timer;
         }
 
         public void SolveB(string[] input)
-        {            
+        {
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            SolutionB = CurrentWizard.SolvePartTwo(input);                               
+            try
+            {
+                SolutionB = CurrentWizard.SolvePartTwo(input);
+
+            }
+            catch
+            {
+                MessageBox.Show($"For some reason, it was not possible to solve Part B:\neither the wizard {CurrentWizard.Name} didn't write it, or the magic was bullshit.");
+            }
 
             timer.Stop();
             ElapsedTimeB = timer;

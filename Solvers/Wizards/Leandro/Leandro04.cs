@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Solvers
 {
-    public class Leandro04 : IWizard
+    public class Leandro04 : Wizard
     {
         private string[] requiredFields = new string[] {
             "byr",
@@ -19,51 +19,55 @@ namespace Solvers
             "pid",
         };
 
+        public Leandro04(string name) : base(name)
+        {
+        }
+
         #region Do Wizardy stuff
 
-        public int SolvePartOne(string[] input)
+        public override int SolvePartOne(string[] input)
         {
             int solution = 0;
             StringBuilder currPass = new StringBuilder();
 
             for (int i = 0; i < input.Count(); i++)
             {
-                if (string.IsNullOrEmpty(input[i].Trim()))
+                if (!string.IsNullOrEmpty(input[i].Trim()))
+                {
+                    currPass.Append(input[i].Trim() + " ");
+                }
+
+                if (string.IsNullOrEmpty(input[i].Trim()) || i == input.Count() - 1)
                 {
                     if (ValidatePassportFields(currPass.ToString().Trim()))
                         solution++;
 
                     currPass.Clear();
-                }
-                else
-                {
-                    currPass.Append(input[i].Trim() + " ");
-                }
+                }                
             }
-
             return solution;
         }
 
-        public int SolvePartTwo(string[] input)
+        public override int SolvePartTwo(string[] input)
         {
             int solution = 0;
             StringBuilder currPass = new StringBuilder();
 
             for (int i = 0; i < input.Count(); i++)
             {
-                if (string.IsNullOrEmpty(input[i].Trim()))
+                if (!string.IsNullOrEmpty(input[i].Trim()))
+                {
+                    currPass.Append(input[i].Trim() + " ");
+                }
+
+                if (string.IsNullOrEmpty(input[i].Trim()) || i == input.Count() - 1)
                 {
                     if (ValidateFullPassport(currPass.ToString().Trim()))
                         solution++;
 
                     currPass.Clear();
                 }
-                else
-                {
-                    currPass.Append(input[i].Trim() + " ");
-                }
             }
-
             return solution;
         }
 

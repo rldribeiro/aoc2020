@@ -14,26 +14,11 @@
         <SolidColorBrush x:Key="Black" Color="Black"/>
     </Window.Resources>
 
-
-
     <Grid Background="Black">
         <TabControl HorizontalAlignment="Left" Height="409" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Background="Black">
-            <!--<TabItem Header="[ Day 01 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
-                <local:Day01Control />
-            </TabItem>
-            <TabItem Header="[ Day 02 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
-                <local:Day02Control />
-            </TabItem>
-            <TabItem Header="[ Day 03 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
-                <local:Day03Control />
-            </TabItem>
-            <TabItem Header="[ Day 04 ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
-                <local:Day04Control />
-            </TabItem>-->
             <TabItem Header="[ More Days ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
                 <local:DayControl />
             </TabItem>
         </TabControl>
-        <ComboBox HorizontalAlignment="Left" Margin="661,415,0,0" VerticalAlignment="Top" Width="120" Background="Black" BorderBrush="#FF46E20C" Foreground="#FF46E20C"/>
     </Grid>
 </Window>

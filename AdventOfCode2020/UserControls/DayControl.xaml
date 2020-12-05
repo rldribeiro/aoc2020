@@ -18,11 +18,16 @@
     </UserControl.Resources>
 
     <Grid Background="Black" DataContext="{StaticResource dayvm}">
-        <ListView ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay}" HorizontalAlignment="Left" Height="294" Margin="0,22,0,0" VerticalAlignment="Top" Width="56" Background="Black" Foreground="#FF22ED0D" SelectionChanged="ListView_SelectionChanged" BorderBrush="#FF22ED0D">
+        <!--Days and Wizards-->
+        <Label Content="[ Day ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="85,-3,0,0" VerticalAlignment="Top"/>
+        <ListView ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay}" HorizontalAlignment="Left" Height="298" Margin="79,22,0,0" VerticalAlignment="Top" Width="56" Background="Black" Foreground="#FF22ED0D" SelectionChanged="ListView_SelectionChanged" BorderBrush="#FF22ED0D">
         </ListView>
-        <ListView ItemsSource="{Binding Wizards}" SelectedItem="{Binding SelectedWizard}" HorizontalAlignment="Left" Height="294" Margin="61,22,0,0" VerticalAlignment="Top" Width="56" Background="Black" Foreground="#FF22ED0D" SelectionChanged="ListView_SelectionChanged" BorderBrush="#FF22ED0D">
+        <Label Content="[ Wizard ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="11,-3,0,0" VerticalAlignment="Top"/>
+        <ListView ItemsSource="{Binding Wizards}" SelectedItem="{Binding SelectedWizard}" HorizontalAlignment="Left" Height="297" Margin="10,22,0,0" VerticalAlignment="Top" Width="64" Background="Black" Foreground="#FF22ED0D" SelectionChanged="ListView_SelectionChanged" BorderBrush="#FF22ED0D">
         </ListView>
+
         <!--INPUT-->
+        <Label Content="[ Input ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="223,-4,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="298" Margin="147,22,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="200"
                              AcceptsReturn="True"
                              Text="{Binding RawInput}" Background="Black" BorderBrush="Lime" Foreground="{StaticResource ActiveGreen}"/>
@@ -53,8 +58,6 @@
 
         <TextBlock Text="{Binding ResultB}" HorizontalAlignment="Left" Height="51" Margin="395,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="36"
                                 Background="Black" Foreground="{StaticResource ActiveGreen}"/>
-        <Label Content="[ Day ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="6,-3,0,0" VerticalAlignment="Top"/>
-        <Label Content="[ Wizard ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="59,-3,0,0" VerticalAlignment="Top"/>
-        <Label Content="[ Input ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="223,-4,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>

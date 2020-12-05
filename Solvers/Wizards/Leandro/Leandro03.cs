@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace Solvers
 {
-    public class Leandro03 : IWizard
+    public class Leandro03 : Wizard
     {
-        public int SolvePartOne(string[] input)
+        public Leandro03(string name) : base(name)
+        {
+        }
+
+        public override int SolvePartOne(string[] input)
         {
             return HitTrees(input);
         }
 
-        public int SolvePartTwo(string[] input)
+        public override int SolvePartTwo(string[] input)
         {
             var solution = 1;
 
