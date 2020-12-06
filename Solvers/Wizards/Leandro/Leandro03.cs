@@ -12,12 +12,12 @@ namespace Solvers
         {
         }
 
-        public override int SolvePartOne(string[] input)
+        public override long SolvePartOne(string[] input)
         {
             return HitTrees(input);
         }
 
-        public override int SolvePartTwo(string[] input)
+        public override long SolvePartTwo(string[] input)
         {
             var solution = 1;
 

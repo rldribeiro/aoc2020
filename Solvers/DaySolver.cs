@@ -28,14 +28,14 @@ namespace Solvers
         public Wizard CurrentWizard { get; set; }
 
         #region Part A        
-        public int SolutionA { get; set; }
+        public long SolutionA { get; set; }
         public Stopwatch ElapsedTimeA { get; set; }
 
         #endregion
 
         #region Part B
 
-        public int SolutionB { get; set; }
+        public long SolutionB { get; set; }
         public Stopwatch ElapsedTimeB { get; set; }
 
         #endregion

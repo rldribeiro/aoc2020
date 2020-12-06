@@ -18,11 +18,11 @@ namespace ViewModel
 
         private string rawInput;
 
-        private int resultA;
+        private long resultA;
         private double elapsedTimeA;
         private double elapsedTicksA;
 
-        private int resultB;
+        private long resultB;
         private double elapsedTimeB;
         private double elapsedTicksB;
 
@@ -80,7 +80,7 @@ namespace ViewModel
         }
 
         // A
-        public int ResultA
+        public long ResultA
         {
             get { return resultA; }
             set
@@ -118,7 +118,7 @@ namespace ViewModel
         }
 
         // B        
-        public int ResultB
+        public long ResultB
         {
             get { return resultB; }
             set

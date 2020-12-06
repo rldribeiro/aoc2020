@@ -17,7 +17,7 @@ namespace Solvers
 
         #region Solutions
 
-        public override int SolvePartOne(string[] input)
+        public override long SolvePartOne(string[] input)
         {
             int solution = 0;
             seatIds = new int[input.Count()];
@@ -38,7 +38,7 @@ namespace Solvers
             return solution;
         }
 
-        public override int SolvePartTwo(string[] input)
+        public override long SolvePartTwo(string[] input)
         {            
             Array.Sort(seatIds);
             

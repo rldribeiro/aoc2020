@@ -25,7 +25,7 @@ namespace Solvers
 
         #region Do Wizardy stuff
 
-        public override int SolvePartOne(string[] input)
+        public override long SolvePartOne(string[] input)
         {
             int solution = 0;
             StringBuilder currPass = new StringBuilder();
@@ -48,7 +48,7 @@ namespace Solvers
             return solution;
         }
 
-        public override int SolvePartTwo(string[] input)
+        public override long SolvePartTwo(string[] input)
         {
             int solution = 0;
             StringBuilder currPass = new StringBuilder();

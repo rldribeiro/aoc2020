@@ -15,8 +15,8 @@ namespace Solvers
             Name = name;
         }
 
-        public abstract int SolvePartOne(string[] input);
+        public abstract long SolvePartOne(string[] input);
 
-        public abstract int SolvePartTwo(string[] input);
+        public abstract long SolvePartTwo(string[] input);
     }
 }
