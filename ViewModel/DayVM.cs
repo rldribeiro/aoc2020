@@ -232,7 +232,8 @@ namespace ViewModel
                     WidthA = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionA) * 256);
                     await Task.Delay(1);
                 }
-                
+                ResultA = solver.SolutionA;
+                WidthA = 256;
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
                 ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
             }
@@ -253,6 +254,8 @@ namespace ViewModel
                     WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
                     await Task.Delay(1);
                 }
+                ResultB = solver.SolutionB;
+                WidthB = 256;
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
             }

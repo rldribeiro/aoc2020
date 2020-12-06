@@ -43,22 +43,22 @@
         <Label Content="(ticks)" HorizontalAlignment="Left" Margin="482,136,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
         <TextBlock Text="{Binding ElapsedTicksA}" HorizontalAlignment="Left" Margin="545,144,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
 
-        <TextBlock Text="{Binding ResultA}" HorizontalAlignment="Left" Height="51" Margin="395,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="36"
-                                Background="Black" Foreground="{StaticResource ActiveGreen}"/>
+        <TextBox Text="{Binding ResultA, Mode=OneWay}" HorizontalAlignment="Left" Height="51" Margin="395,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" FontSize="36"
+                                Background="Black" Foreground="{StaticResource ActiveGreen}" BorderBrush="{StaticResource DimGreen}"/>
+        <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="395,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA}"/>
 
         <!--PART B-->
         <TextBlock Text="[ Part Two ]" HorizontalAlignment="Left" Margin="395,190,0,0" VerticalAlignment="Top" Foreground="{StaticResource DimGreen}" FontSize="20"/>
 
-        <Label Content="ELAPSED TIME (ms)" HorizontalAlignment="Left" Margin="389,271,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <TextBlock Text="{Binding ElapsedTimeB}" HorizontalAlignment="Left" Margin="545,277,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <Label Content="ELAPSED TIME (ms)" HorizontalAlignment="Left" Margin="389,275,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTimeB}" HorizontalAlignment="Left" Margin="545,281,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
 
-        <Label Content="(ticks)" HorizontalAlignment="Left" Margin="483,290,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <TextBlock Text="{Binding ElapsedTicksB}" HorizontalAlignment="Left" Margin="545,296,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
+        <Label Content="(ticks)" HorizontalAlignment="Left" Margin="483,294,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTicksB}" HorizontalAlignment="Left" Margin="545,300,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
 
-        <TextBlock Text="{Binding ResultB}" HorizontalAlignment="Left" Height="51" Margin="395,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="36"
-                                Background="Black" Foreground="{StaticResource ActiveGreen}"/>
-        <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="395,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA}"/>
-        <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="395,269,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthB}"/>
+        <TextBox Text="{Binding ResultB, Mode=OneWay}" HorizontalAlignment="Left" Height="51" Margin="395,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" FontSize="36"
+                                Background="Black" Foreground="{StaticResource ActiveGreen}" BorderBrush="{StaticResource DimGreen}" />
+        <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="394,276,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthB}"/>
 
     </Grid>
 </UserControl>
