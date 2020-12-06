@@ -18,10 +18,7 @@ namespace ViewModel
             FABIO,
             GONCALO,
             LEANDRO
-        };
-
-        public static List<int> CurrentDays = new List<int> { 1, 2, 3, 4, 5 };
-
+        };        
 
         public static Wizard SummonWizard(string wizardName, int day)
         {

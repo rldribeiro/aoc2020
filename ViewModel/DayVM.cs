@@ -14,7 +14,7 @@ namespace ViewModel
     {
         private DaySolver solver;
         private string selectedWizard = Hogwarts.CurrentWizards[0];
-        private int selectedDay = 1;
+        private int selectedDay = DateTime.Now.Day;
 
         private string rawInput;
 
@@ -40,11 +40,11 @@ namespace ViewModel
                     OnPropertyChanged("RawInput");
                 }
             }
-        }        
+        }
         public List<string> Wizards
         {
             get { return Hogwarts.CurrentWizards; }
-        }        
+        }
         public string SelectedWizard
         {
             get { return selectedWizard; }
@@ -61,7 +61,7 @@ namespace ViewModel
         {
             get
             {
-                return Hogwarts.CurrentDays;
+                return Enumerable.Range(1, DateTime.Now.Day <= 25 ? DateTime.Now.Day : 25).ToList();
             }
         }
         public int SelectedDay
@@ -187,21 +187,22 @@ namespace ViewModel
         internal void Solve(string[] input)
         {
             string[] rawInput = RawInput.Split('\n');
+
             Wizard wizard = Hogwarts.SummonWizard(selectedWizard, selectedDay);
 
             solver = new DaySolver(wizard);
 
-                // A
-                solver.SolveA(rawInput);            
-                ResultA = solver.SolutionA;                                            
-                ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
-                ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
+            // A
+            solver.SolveA(rawInput);
+            ResultA = solver.SolutionA;
+            ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
+            ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
 
-                // B
-                solver.SolveB(rawInput);
-                ResultB = solver.SolutionB;
-                ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
-                ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
+            // B
+            solver.SolveB(rawInput);
+            ResultB = solver.SolutionB;
+            ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
+            ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
 
             return;
         }
