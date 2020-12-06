@@ -46,40 +46,24 @@ namespace Solvers
 
         public void SolveA(string[] input)
         {
-            try
-            {
-                Stopwatch timer = new Stopwatch();
-                timer.Start();
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
 
-                SolutionA = CurrentWizard.SolvePartOne(input);
+            SolutionA = CurrentWizard.SolvePartOne(input);
 
-                timer.Stop();
-                ElapsedTimeA = timer;
-            }
-            catch
-            {
-                string wizName = CurrentWizard == null ? string.Empty : CurrentWizard.Name;
-                MessageBox.Show($"For some reason, it was not possible to solve Part A:\neither the wizard {wizName} didn't write it, or the magic was bullshit.");
-            }
+            timer.Stop();
+            ElapsedTimeA = timer;
         }
 
         public void SolveB(string[] input)
         {
-            try
-            {
-                Stopwatch timer = new Stopwatch();
-                timer.Start();
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
 
-                SolutionB = CurrentWizard.SolvePartTwo(input);
-                
-                timer.Stop();
-                ElapsedTimeB = timer;
-            }
-            catch
-            {
-                string wizName = CurrentWizard == null ? string.Empty : CurrentWizard.Name;
-                MessageBox.Show($"For some reason, it was not possible to solve Part B:\neither the wizard {wizName} didn't write it, or the magic was bullshit.");
-            }            
+            SolutionB = CurrentWizard.SolvePartTwo(input);
+
+            timer.Stop();
+            ElapsedTimeB = timer;
         }
 
         #endregion        

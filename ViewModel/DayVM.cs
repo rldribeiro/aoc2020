@@ -193,18 +193,30 @@ namespace ViewModel
             solver = new DaySolver(wizard);
 
             // A
-            solver.SolveA(rawInput);
-            ResultA = solver.SolutionA;
-            ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
-            ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
+            try
+            {
+                solver.SolveA(rawInput);
+                ResultA = solver.SolutionA;
+                ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
+                ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
+            }
+            catch
+            {
+                MessageBox.Show($"For some reason, it was not possible to solve Part One:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
+            }
 
             // B
-            solver.SolveB(rawInput);
-            ResultB = solver.SolutionB;
-            ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
-            ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
-
-            return;
+            try
+            {
+                solver.SolveB(rawInput);
+                ResultB = solver.SolutionB;
+                ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
+                ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
+            }
+            catch
+            {
+                MessageBox.Show($"For some reason, it was not possible to solve Part Two:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
+            }
         }
 
         #endregion
