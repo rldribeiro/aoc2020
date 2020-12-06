@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AdventOfCode2020"
              xmlns:vm="clr-namespace:ViewModel;assembly=ViewModel"   
-             mc:Ignorable="d" 
-             d:DesignHeight="370" d:DesignWidth="700">
+             mc:Ignorable="d" Width="682" Height="344.5">
 
     <UserControl.Resources>
         <vm:DayVM x:Key="dayvm" />
@@ -17,7 +16,7 @@
 
     </UserControl.Resources>
 
-    <Grid Background="Black" DataContext="{StaticResource dayvm}">
+    <Grid Background="Black" DataContext="{StaticResource dayvm}" Margin="0,0,6,0">
         <!--Days and Wizards-->
         <Label Content="[ Day ]" Foreground="DimGray" HorizontalAlignment="Left" Margin="85,-3,0,0" VerticalAlignment="Top"/>
         <ListView ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay}" HorizontalAlignment="Left" Height="298" Margin="79,22,0,0" VerticalAlignment="Top" Width="56" Background="Black" Foreground="#FF22ED0D" SelectionChanged="ListView_SelectionChanged" BorderBrush="#FF22ED0D">
@@ -58,6 +57,8 @@
 
         <TextBlock Text="{Binding ResultB}" HorizontalAlignment="Left" Height="51" Margin="395,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="36"
                                 Background="Black" Foreground="{StaticResource ActiveGreen}"/>
+        <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="395,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthA}"/>
+        <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="395,269,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthB}"/>
 
     </Grid>
 </UserControl>

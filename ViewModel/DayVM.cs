@@ -26,7 +26,6 @@ namespace ViewModel
         private double elapsedTimeB;
         private double elapsedTicksB;
 
-
         #region Binding Properties
 
         public string RawInput
@@ -117,6 +116,36 @@ namespace ViewModel
             }
         }
 
+        private int widthA;
+
+        public int WidthA
+        {
+            get { return widthA; }
+            set
+            {
+                if (value != widthA)
+                {
+                    widthA = value;
+                    OnPropertyChanged("WidthA");
+                }
+            }
+        }
+
+        private int widthB;
+
+        public int WidthB
+        {
+            get { return widthB; }
+            set
+            {
+                if (value != widthB)
+                {
+                    widthB = value;
+                    OnPropertyChanged("WidthB");
+                }
+            }
+        }
+
         // B        
         public int ResultB
         {
@@ -184,7 +213,7 @@ namespace ViewModel
 
         #region Private/Internal Methods
 
-        internal void Solve(string[] input)
+        internal async void Solve(string[] input)
         {
             string[] rawInput = RawInput.Split('\n');
 
@@ -196,7 +225,14 @@ namespace ViewModel
             try
             {
                 solver.SolveA(rawInput);
-                ResultA = solver.SolutionA;
+                int solSize = solver.SolutionA;
+                for (int i = 0; i < solver.SolutionA; i += solSize / 30)
+                {
+                    ResultA = i;                    
+                    WidthA = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionA) * 256);
+                    await Task.Delay(1);
+                }
+                
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
                 ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
             }
@@ -209,7 +245,14 @@ namespace ViewModel
             try
             {
                 solver.SolveB(rawInput);
-                ResultB = solver.SolutionB;
+                int solSize = solver.SolutionB;
+
+                for (int i = 0; i < solver.SolutionB; i += solSize / 30)
+                {
+                    ResultB = i;
+                    WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
+                    await Task.Delay(1);
+                }
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
             }
