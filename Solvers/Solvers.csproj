@@ -51,6 +51,7 @@
     <Compile Include="Wizards\Goncalo\Goncalo03.cs" />
     <Compile Include="Wizards\Goncalo\Goncalo02.cs" />
     <Compile Include="Wizards\Goncalo\Goncalo01.cs" />
+    <Compile Include="Wizards\Goncalo\Goncalo05.cs" />
     <Compile Include="Wizards\Leandro\Leandro01.cs" />
     <Compile Include="Wizards\Leandro\Leandro02.cs" />
     <Compile Include="Wizards\Leandro\Leandro03.cs" />

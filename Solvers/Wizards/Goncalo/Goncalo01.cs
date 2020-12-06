@@ -12,14 +12,64 @@ namespace Solvers
         {
         }
 
-        public override int SolvePartOne(string[] input)
+        public override long SolvePartOne(string[] input)
         {
-            throw new NotImplementedException();
+            int[] inputDates = input.Select(t => Convert.ToInt32(t)).ToArray();
+
+            HashSet<int> checkedValues = new HashSet<int>();
+            int result = 0;
+            int pair = 0;
+            int item = 0;
+
+            for (int i = 0; i < inputDates.Length; i++)
+            {
+                item = inputDates[i];
+                pair = 2020 - item;
+                if (checkedValues.Contains(pair))
+                {
+                    result = item * pair;
+                    break;
+                }
+                checkedValues.Add(item);
+            }
+
+            return result;
+
         }
 
-        public override int SolvePartTwo(string[] input)
+        public override long SolvePartTwo(string[] input)
         {
-            throw new NotImplementedException();
+            int[] inputDates = input.Select(t => Convert.ToInt32(t)).ToArray();
+
+            HashSet<int> checkedValues = new HashSet<int>();
+            int result = 0;
+            int pair = 0;
+            int elem1 = 0;
+            int elem2 = 0;
+            bool found = false;
+
+            for (int i = 0; i < inputDates.Length - 2; i++)
+            {
+                elem1 = inputDates[i];
+                for (int j = 1; j < inputDates.Length; j++)
+                {
+                    elem2 = inputDates[j];
+                    pair = 2020 - elem1 - elem2;
+
+                    if (checkedValues.Contains(pair))
+                    {
+                        result = pair * elem1 * elem2;
+                        found = true;
+                        break;
+                    }
+                    checkedValues.Add(elem2);
+                }
+
+                if (found)
+                    break;
+            }
+
+            return result;
         }
     }
 }

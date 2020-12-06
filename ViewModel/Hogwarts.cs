@@ -1,4 +1,5 @@
 ﻿using Solvers;
+using Solvers.Wizards.Goncalo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,7 @@ namespace ViewModel
                     break;
                 case 5:                    
                     if (wizardName.Equals(LEANDRO)) return new Leandro05(LEANDRO);
+                    if (wizardName.Equals(GONCALO)) return new Goncalo05(GONCALO);
                     break;
             }
 

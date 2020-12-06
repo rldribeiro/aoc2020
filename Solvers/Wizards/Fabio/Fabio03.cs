@@ -12,12 +12,12 @@ namespace Solvers
         {
         }
 
-        public override int SolvePartOne(string[] input)
+        public override long SolvePartOne(string[] input)
         {
             throw new NotImplementedException();
         }
 
-        public override int SolvePartTwo(string[] input)
+        public override long SolvePartTwo(string[] input)
         {
             throw new NotImplementedException();
         }
