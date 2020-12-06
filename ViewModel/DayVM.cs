@@ -225,8 +225,8 @@ namespace ViewModel
             try
             {
                 solver.SolveA(rawInput);
-                int solSize = solver.SolutionA;
-                for (int i = 0; i < solver.SolutionA; i += solSize / 30)
+                long solSize = solver.SolutionA;
+                for (long i = 0; i < solver.SolutionA; i += solSize / 30)
                 {
                     ResultA = i;                    
                     WidthA = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionA) * 256);
@@ -245,9 +245,9 @@ namespace ViewModel
             try
             {
                 solver.SolveB(rawInput);
-                int solSize = solver.SolutionB;
+                long solSize = solver.SolutionB;
 
-                for (int i = 0; i < solver.SolutionB; i += solSize / 30)
+                for (long i = 0; i < solver.SolutionB; i += solSize / 30)
                 {
                     ResultB = i;
                     WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
