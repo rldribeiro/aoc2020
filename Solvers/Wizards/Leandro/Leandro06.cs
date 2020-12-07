@@ -43,7 +43,7 @@ namespace Solvers
             for (int i = 0; i < input.Count(); i++)
             {
                 if (!string.IsNullOrWhiteSpace(input[i]))
-                    otherChars = (char[])otherChars.Intersect(input[i].ToCharArray());
+                    otherChars = otherChars.Intersect(input[i].ToCharArray()).ToArray<char>();
 
                 if (string.IsNullOrWhiteSpace(input[i]) || i == input.Count() - 1)
                 {
@@ -54,11 +54,6 @@ namespace Solvers
 
             return solution;
         }
-
-        #endregion
-
-        #region Auxiliary Methods
-
 
         #endregion
     }

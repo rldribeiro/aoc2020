@@ -215,7 +215,7 @@ namespace ViewModel
 
         internal async void Solve(string[] input)
         {
-            string[] rawInput = RawInput.Split('\n');
+            string[] rawInput = RawInput.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
             Wizard wizard = Hogwarts.SummonWizard(selectedWizard, selectedDay);
 
@@ -227,8 +227,10 @@ namespace ViewModel
                 solver.SolveA(rawInput);
                 long solSize = solver.SolutionA;
 
+                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);
+
                 // Cute animation
-                for (long i = 0; i < solver.SolutionA; i += solSize / 30)
+                for (long i = 0; i < solver.SolutionA; i += inc)
                 {
                     ResultA = i;
                     WidthA = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionA) * 256);
@@ -252,8 +254,10 @@ namespace ViewModel
                 solver.SolveB(rawInput);
                 long solSize = solver.SolutionB;
 
+                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);
+
                 // Cute animation
-                for (long i = 0; i < solver.SolutionB; i += solSize / 30)
+                for (long i = 0; i < solver.SolutionB; i += inc)
                 {
                     ResultB = i;
                     WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
