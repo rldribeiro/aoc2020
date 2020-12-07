@@ -226,14 +226,18 @@ namespace ViewModel
             {
                 solver.SolveA(rawInput);
                 long solSize = solver.SolutionA;
+
+                // Cute animation
                 for (long i = 0; i < solver.SolutionA; i += solSize / 30)
                 {
-                    ResultA = i;                    
+                    ResultA = i;
                     WidthA = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionA) * 256);
                     await Task.Delay(1);
                 }
-                ResultA = solver.SolutionA;
+                
                 WidthA = 256;
+                ResultA = solver.SolutionA;
+
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
                 ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
             }
@@ -248,14 +252,17 @@ namespace ViewModel
                 solver.SolveB(rawInput);
                 long solSize = solver.SolutionB;
 
+                // Cute animation
                 for (long i = 0; i < solver.SolutionB; i += solSize / 30)
                 {
                     ResultB = i;
                     WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
                     await Task.Delay(1);
                 }
-                ResultB = solver.SolutionB;
+                
                 WidthB = 256;
+                ResultB = solver.SolutionB;
+
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
             }
