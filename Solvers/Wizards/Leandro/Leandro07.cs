@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -77,26 +78,29 @@ namespace Solvers
     */
     public class Leandro07 : Wizard
     {
-        private Dictionary<string, Bag> rules;
+        private Dictionary<string, Bag> bags;
 
         public Leandro07(string name) : base(name)
         {
-            rules = new Dictionary<string, Bag>();
+            bags = new Dictionary<string, Bag>();
         }
 
         #region Solutions
 
         public override long SolvePartOne(string[] input)
-        {            
-            ParseRules(input);
-            return FindHowManyHold("shiny gold");            
+        {
+            long sol = 0;
+            ParseRules(input);                     
+
+            HashSet<Bag> checkedBags = new HashSet<Bag>();
+            FindHowManyHold(bags["shiny gold"], checkedBags, ref sol);            
+
+            return sol;
         }
 
         public override long SolvePartTwo(string[] input)
         {            
-            Bag gold = rules["shiny gold"];
-
-            return CountBagCapacity(gold);                       
+            return CountBagCapacity(bags["shiny gold"]);                       
         }
 
         #endregion
@@ -106,36 +110,14 @@ namespace Solvers
         {
             public Bag(string color)
             {
-                bagColor = color;
-                possibleContent = new Dictionary<Bag, int>();
+                BagColor = color;
+                Contains = new Dictionary<Bag, int>();
+                IsContainedBy = new List<Bag>();
             }
 
-            public string bagColor;
-            public Dictionary<Bag, int> possibleContent;
-        }
-
-        private int FindHowManyHold(string v)
-        {
-            int solution = 0;
-            foreach (var rule in rules)
-                solution += FindIfHolds(rule.Value, v) ? 1 : 0;
-
-            return solution;
-        }
-
-        private bool FindIfHolds(Bag bag, string v)
-        {
-            if (bag.possibleContent.ContainsKey(rules[v]))
-                return true;
-
-            if (bag.possibleContent.Count == 0)
-                return false;
-
-            foreach (var inBag in bag.possibleContent)
-                if (FindIfHolds(inBag.Key, v)) return true;
-
-            return false;
-
+            public string BagColor;
+            public Dictionary<Bag, int> Contains;
+            public List<Bag> IsContainedBy;
         }
 
         private void ParseRules(string[] input)
@@ -150,14 +132,14 @@ namespace Solvers
 
                 Bag currBag;
 
-                if (!rules.ContainsKey(rule[0]))
+                if (!bags.ContainsKey(rule[0]))
                 {
                     currBag = new Bag(rule[0]);
-                    rules.Add(currBag.bagColor, currBag);
+                    bags.Add(currBag.BagColor, currBag);
                 }
                 else
                 { 
-                    currBag = rules[rule[0]];
+                    currBag = bags[rule[0]];
                 }
 
                 foreach (Match match in reg.Matches(rule[1]))
@@ -166,18 +148,32 @@ namespace Solvers
                     int amount = 0;
                     int.TryParse(match.Groups[1].Value, out amount);
 
-                    Bag otherBag;
+                    Bag containedBag;
 
-                    if (!rules.ContainsKey(match.Groups[2].Value))
+                    if (!bags.ContainsKey(match.Groups[2].Value))
                     {
-                        otherBag = new Bag(color);
-                        rules.Add(otherBag.bagColor, otherBag);
+                        containedBag = new Bag(color);
+                        bags.Add(containedBag.BagColor, containedBag);
                     }
                     else
                     {
-                        otherBag = rules[color];
+                        containedBag = bags[color];
                     }
-                    currBag.possibleContent.Add(otherBag, amount);                        
+                    currBag.Contains.Add(containedBag, amount);
+                    containedBag.IsContainedBy.Add(currBag);
+                }
+            }
+        }
+
+        private void FindHowManyHold(Bag bag, HashSet<Bag> checkedBags, ref long sol)
+        {
+            foreach (var inBag in bag.IsContainedBy)
+            {
+                if (!checkedBags.Contains(inBag))
+                {
+                    sol++;
+                    checkedBags.Add(inBag);
+                    FindHowManyHold(inBag, checkedBags, ref sol);
                 }
             }
         }
@@ -186,11 +182,11 @@ namespace Solvers
         {
             long capacity = 0;
 
-            if (bag.possibleContent.Count() == 0)
+            if (bag.Contains.Count() == 0)
                 return capacity;
             else
             {
-                foreach (var inBag in bag.possibleContent)
+                foreach (var inBag in bag.Contains)
                 {
                     capacity += inBag.Value;
                     capacity += CountBagCapacity(inBag.Key) * inBag.Value;
