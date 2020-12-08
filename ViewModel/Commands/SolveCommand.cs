@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Solvers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,13 @@ namespace ViewModel.Commands
         }
 
         public void Execute(object parameter)
-        {
-            string[] rawInput = VM.RawInput.Split('\n');            
-            VM.Solve(rawInput);
+        {            
+            string[] rawInput = VM.RawInput.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+            Wizard wizard = Hogwarts.SummonWizard(VM.SelectedWizard, VM.SelectedDay);
+            DaySolver solver = new DaySolver(wizard);
+
+            VM.SolveA(rawInput, solver);
+            VM.SolveB(rawInput, solver);
         }
     }
 }

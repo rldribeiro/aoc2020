@@ -15,9 +15,9 @@
     </Window.Resources>
 
     <Grid Background="Black">
-        <TabControl HorizontalAlignment="Left" Height="409" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Background="Black">
+        <TabControl HorizontalAlignment="Left" Height="409" Margin="10,14,0,0" VerticalAlignment="Top" Width="772" Background="Black">
             <TabItem Header="[ More Days ]" FontSize="10" Background="Black" Foreground="{StaticResource DimGreen}" BorderBrush="{StaticResource DimGreen}" >
-                <local:DayControl Margin="59,21,35,-21" />
+                <local:DayControl Margin="42,0,42,22" VerticalAlignment="Bottom" Height="344" />
             </TabItem>
         </TabControl>
     </Grid>

@@ -92,30 +92,6 @@ namespace Solvers
             return FindHowManyHold("shiny gold");            
         }
 
-        private int FindHowManyHold(string v)
-        {
-            int solution = 0;
-            foreach (var rule in rules)            
-                solution += FindIfHolds(rule.Value, v) ? 1 : 0;
-
-            return solution;
-        }
-
-        private bool FindIfHolds(Bag bag, string v)
-        {            
-            if (bag.possibleContent.ContainsKey(rules[v]))
-                return true;
-
-            if (bag.possibleContent.Count == 0)
-                return false;
-            
-            foreach (var inBag in bag.possibleContent)
-                if (FindIfHolds(inBag.Key, v)) return true;
-
-            return false;
-                
-        }
-
         public override long SolvePartTwo(string[] input)
         {            
             Bag gold = rules["shiny gold"];
@@ -123,27 +99,9 @@ namespace Solvers
             return CountBagCapacity(gold);                       
         }
 
-        private int CountBagCapacity(Bag bag)
-        {
-            int capacity = 0;
-
-            if (bag.possibleContent.Count() == 0)            
-                return capacity;
-            else
-            {
-                foreach (var inBag in bag.possibleContent)
-                {
-                    capacity += inBag.Value;
-                    capacity += CountBagCapacity(inBag.Key) * inBag.Value;
-                }
-                return capacity;
-            }            
-        }
-
         #endregion
 
         #region Auxiliary Methods
-
         private struct Bag
         {
             public Bag(string color)
@@ -154,6 +112,30 @@ namespace Solvers
 
             public string bagColor;
             public Dictionary<Bag, int> possibleContent;
+        }
+
+        private int FindHowManyHold(string v)
+        {
+            int solution = 0;
+            foreach (var rule in rules)
+                solution += FindIfHolds(rule.Value, v) ? 1 : 0;
+
+            return solution;
+        }
+
+        private bool FindIfHolds(Bag bag, string v)
+        {
+            if (bag.possibleContent.ContainsKey(rules[v]))
+                return true;
+
+            if (bag.possibleContent.Count == 0)
+                return false;
+
+            foreach (var inBag in bag.possibleContent)
+                if (FindIfHolds(inBag.Key, v)) return true;
+
+            return false;
+
         }
 
         private void ParseRules(string[] input)
@@ -197,6 +179,23 @@ namespace Solvers
                     }
                     currBag.possibleContent.Add(otherBag, amount);                        
                 }
+            }
+        }
+
+        private long CountBagCapacity(Bag bag)
+        {
+            long capacity = 0;
+
+            if (bag.possibleContent.Count() == 0)
+                return capacity;
+            else
+            {
+                foreach (var inBag in bag.possibleContent)
+                {
+                    capacity += inBag.Value;
+                    capacity += CountBagCapacity(inBag.Key) * inBag.Value;
+                }
+                return capacity;
             }
         }
 

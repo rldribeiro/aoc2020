@@ -27,7 +27,7 @@ namespace Solvers
 
         public override long SolvePartOne(string[] input)
         {
-            int solution = 0;
+            long solution = 0;
             StringBuilder currPass = new StringBuilder();
 
             for (int i = 0; i < input.Count(); i++)
@@ -50,7 +50,7 @@ namespace Solvers
 
         public override long SolvePartTwo(string[] input)
         {
-            int solution = 0;
+            long solution = 0;
             StringBuilder currPass = new StringBuilder();
 
             for (int i = 0; i < input.Count(); i++)

@@ -213,23 +213,16 @@ namespace ViewModel
 
         #region Private/Internal Methods
 
-        internal async void Solve(string[] input)
-        {
-            string[] rawInput = RawInput.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-
-            Wizard wizard = Hogwarts.SummonWizard(selectedWizard, selectedDay);
-
-            solver = new DaySolver(wizard);
-
+        internal async void SolveA(string[] rawInput, DaySolver solver)
+        {            
             // A
             try
             {
                 solver.SolveA(rawInput);
-                long solSize = solver.SolutionA;
-
-                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);
 
                 // Cute animation
+                long solSize = solver.SolutionA;
+                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);                
                 for (long i = 0; i < solver.SolutionA; i += inc)
                 {
                     ResultA = i;
@@ -237,36 +230,38 @@ namespace ViewModel
                     await Task.Delay(1);
                 }
                 
+                // Final results
                 WidthA = 256;
                 ResultA = solver.SolutionA;
-
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
-                ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;
+                ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;                
             }
             catch
             {
                 MessageBox.Show($"For some reason, it was not possible to solve Part One:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
-            }
+            }           
+        }
 
+        internal async void SolveB(string[] rawInput, DaySolver solver)
+        {
             // B
             try
             {
                 solver.SolveB(rawInput);
-                long solSize = solver.SolutionB;
-
-                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);
 
                 // Cute animation
+                long solSize = solver.SolutionB;
+                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);
                 for (long i = 0; i < solver.SolutionB; i += inc)
                 {
                     ResultB = i;
                     WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
                     await Task.Delay(1);
                 }
-                
+
+                // Final results
                 WidthB = 256;
                 ResultB = solver.SolutionB;
-
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
             }

@@ -38,10 +38,9 @@
         <TextBlock Text="[ Part One ]" HorizontalAlignment="Left" Margin="395,26,0,0" VerticalAlignment="Top" Foreground="{StaticResource DimGreen}" FontSize="20"/>
 
 
-        <Label Content="ELAPSED TIME (ms)" HorizontalAlignment="Left" Margin="389,118,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <TextBlock Text="{Binding ElapsedTimeA}" HorizontalAlignment="Left" Margin="545,125,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <Label Content="(ticks)" HorizontalAlignment="Left" Margin="482,136,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <TextBlock Text="{Binding ElapsedTicksA}" HorizontalAlignment="Left" Margin="545,144,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
+        <Label Content="ELAPSED TIME" HorizontalAlignment="Left" Margin="389,118,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTimeA, ConverterCulture=pt-PT,StringFormat=\{0:N0\} ms}" HorizontalAlignment="Left" Margin="545,125,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTicksA, ConverterCulture=pt-PT,StringFormat=\{0:N0\} ticks}" HorizontalAlignment="Left" Margin="545,144,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
 
         <TextBox Text="{Binding ResultA, Mode=OneWay}" HorizontalAlignment="Left" Height="51" Margin="395,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" FontSize="36"
                                 Background="Black" Foreground="{StaticResource ActiveGreen}" BorderBrush="{StaticResource DimGreen}"/>
@@ -50,11 +49,9 @@
         <!--PART B-->
         <TextBlock Text="[ Part Two ]" HorizontalAlignment="Left" Margin="395,190,0,0" VerticalAlignment="Top" Foreground="{StaticResource DimGreen}" FontSize="20"/>
 
-        <Label Content="ELAPSED TIME (ms)" HorizontalAlignment="Left" Margin="389,275,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <TextBlock Text="{Binding ElapsedTimeB}" HorizontalAlignment="Left" Margin="545,281,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-
-        <Label Content="(ticks)" HorizontalAlignment="Left" Margin="483,294,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
-        <TextBlock Text="{Binding ElapsedTicksB}" HorizontalAlignment="Left" Margin="545,300,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
+        <Label Content="ELAPSED TIME" HorizontalAlignment="Left" Margin="389,275,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTimeB, ConverterCulture=pt-PT,StringFormat=\{0:N0\} ms}" HorizontalAlignment="Left" Margin="545,281,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14"/>
+        <TextBlock Text="{Binding ElapsedTicksB, ConverterCulture=pt-PT,StringFormat=\{0:N0\} ticks}" HorizontalAlignment="Left" Margin="545,300,0,0" VerticalAlignment="Top" Foreground="{StaticResource ActiveGreen}" FontSize="14" />
 
         <TextBox Text="{Binding ResultB, Mode=OneWay}" HorizontalAlignment="Left" Height="51" Margin="395,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" FontSize="36"
                                 Background="Black" Foreground="{StaticResource ActiveGreen}" BorderBrush="{StaticResource DimGreen}" />

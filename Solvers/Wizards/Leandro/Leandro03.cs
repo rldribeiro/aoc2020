@@ -19,7 +19,7 @@ namespace Solvers
 
         public override long SolvePartTwo(string[] input)
         {
-            var solution = 1;
+            long solution = 1;
 
             List<(int, int)> slopes = new List<(int, int)>
             {
@@ -38,14 +38,14 @@ namespace Solvers
 
         #region Private parts
 
-        public int HitTrees(string[] input, int slopeX = 3, int slopeY = 1)
+        public long HitTrees(string[] input, int slopeX = 3, int slopeY = 1)
         {
-            int numTreees = 0;
+            long numTreees = 0;
             int currIdx = 0;
 
             for (int i = 0; i < input.Count(); i += slopeY)
             {
-                string currStr = input[i].Trim();
+                string currStr = input[i];
 
                 if (currStr.ElementAt(currIdx) == '#')
                     numTreees++;

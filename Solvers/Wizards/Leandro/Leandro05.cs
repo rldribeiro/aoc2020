@@ -19,7 +19,7 @@ namespace Solvers
 
         public override long SolvePartOne(string[] input)
         {
-            int solution = 0;
+            long solution = 0;
             seatIds = new int[input.Count()];
 
             for (int i = 0; i < input.Count(); i++)
@@ -42,7 +42,7 @@ namespace Solvers
         {            
             Array.Sort(seatIds);
             
-            int expectedId = seatIds[0];
+            long expectedId = seatIds[0];
 
             for (int i = 0; i < seatIds.Count(); i++)
             {

@@ -18,7 +18,7 @@ namespace Solvers
         public override long SolvePartOne(string[] input)
         {
             HashSet<char> currentVotes = new HashSet<char>();
-            int solution = 0;
+            long solution = 0;
 
             for (int i = 0; i < input.Count(); i++)
             {    
@@ -38,7 +38,7 @@ namespace Solvers
         {
             char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToArray();
             char[] otherChars = alphabet;            
-            int solution = 0;
+            long solution = 0;
 
             for (int i = 0; i < input.Count(); i++)
             {
