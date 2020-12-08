@@ -11,8 +11,7 @@ using ViewModel.Commands;
 namespace ViewModel
 {
     public class DayVM : INotifyPropertyChanged
-    {
-        private DaySolver solver;
+    {        
         private string selectedWizard = Hogwarts.CurrentWizards[0];
         private int selectedDay = DateTime.Now.Day;
 
@@ -25,6 +24,8 @@ namespace ViewModel
         private long resultB;
         private double elapsedTimeB;
         private double elapsedTicksB;
+
+        private string insult;
 
         #region Binding Properties
 
@@ -75,6 +76,19 @@ namespace ViewModel
                     OnPropertyChanged("SelectedDay");
                 }
 
+            }
+        }        
+        public string Insult
+        {
+            get { return insult; }
+
+            set
+            {
+                if (value != insult)
+                {
+                    insult = value;
+                    OnPropertyChanged("Insult");
+                }
             }
         }
 
@@ -207,7 +221,7 @@ namespace ViewModel
 
         #region Commands
 
-        public SolveCommand SolveCommand { get; set; }
+        public SolveCommand SolveCommand { get; set; }        
 
         #endregion
 
