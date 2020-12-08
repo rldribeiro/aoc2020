@@ -46,6 +46,7 @@
     <Compile Include="Wizards\Fabio\Fabio01.cs" />
     <Compile Include="Wizards\Fabio\Fabio02.cs" />
     <Compile Include="Wizards\Fabio\Fabio03.cs" />
+    <Compile Include="Wizards\Fabio\Fabio05.cs" />
     <Compile Include="Wizards\Fabio\Fabio04.cs" />
     <Compile Include="Wizards\Goncalo\Goncalo04.cs" />
     <Compile Include="Wizards\Goncalo\Goncalo03.cs" />
