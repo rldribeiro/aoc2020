@@ -29,13 +29,25 @@ namespace ViewModel.Commands
         }
 
         public void Execute(object parameter)
-        {            
+        {
+            InsultTime();
             string[] rawInput = VM.RawInput.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             Wizard wizard = Hogwarts.SummonWizard(VM.SelectedWizard, VM.SelectedDay);
             DaySolver solver = new DaySolver(wizard);
 
             VM.SolveA(rawInput, solver);
             VM.SolveB(rawInput, solver);
+        }
+
+        private void InsultTime()
+        {
+            Random rand = new Random();
+            Random randAgain = new Random();
+            var res = rand.Next(0, 7);
+            if (res == 3)
+                VM.Insult = "O " + VM.SelectedWizard + " " + Hogwarts.Insults[randAgain.Next(0, Hogwarts.Insults.Count - 1)];
+            else
+                VM.Insult = string.Empty;
         }
     }
 }

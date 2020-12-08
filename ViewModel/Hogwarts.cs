@@ -19,7 +19,15 @@ namespace ViewModel
             FABIO,
             GONCALO,
             LEANDRO
-        };        
+        };
+
+        public static List<string> Insults = new List<string>
+        {
+            "cheira mal dos pés.",
+            "gosta de pilas grandes.",
+            "é parecido com um cavalo.",
+            "foi para a cama com a rainha Elisabete."
+        };
 
         public static Wizard SummonWizard(string wizardName, int day)
         {
