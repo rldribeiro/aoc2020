@@ -43,9 +43,10 @@ namespace ViewModel.Commands
         {
             Random rand = new Random();
             Random randAgain = new Random();
-            var res = rand.Next(0, 7);
-            if (res == 3)
-                VM.Insult = "O " + VM.SelectedWizard + " " + Hogwarts.Insults[randAgain.Next(0, Hogwarts.Insults.Count - 1)];
+            var r = rand.Next(0, 7);
+            var r2 = rand.Next(0, (Hogwarts.Insults.Count - 1));
+            if (r == 3)
+                VM.Insult = "O " + VM.SelectedWizard + " " + Hogwarts.Insults[r2];
             else
                 VM.Insult = string.Empty;
         }

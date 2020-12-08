@@ -19,7 +19,7 @@ namespace Solvers
         public override long SolvePartOne(string[] input)
         {
             this.input = input;
-            Width = input[0].Length-1;
+            Width = input[0].Length;
             Height = input.Length;
 
             long numberOfTrees = 0;
@@ -36,7 +36,7 @@ namespace Solvers
         {
 
             this.input = input;
-            Width = input[0].Length-1;
+            Width = input[0].Length;
             Height = input.Length;
 
             int[][] slops =
