@@ -72,6 +72,9 @@ namespace ViewModel
                     if (wizardName.Equals(LEANDRO)) return new Leandro08(LEANDRO);
                     if (wizardName.Equals(GONCALO)) return new Goncalo08(GONCALO);
                     break;
+                case 9:
+                    if (wizardName.Equals(GONCALO)) return new Goncalo09(GONCALO);
+                    break;
             }
 
             return wizard;
