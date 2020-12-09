@@ -160,6 +160,22 @@ namespace ViewModel
             }
         }
 
+        private bool errorOne = false;
+
+        public bool ErrorOne
+        {
+            get { return errorOne; }
+            set
+            {
+                if (value != errorOne)
+                {
+                    errorOne = value;
+                    OnPropertyChanged("ErrorOne");
+                }
+            }
+        }
+
+
         // B        
         public long ResultB
         {
@@ -197,6 +213,22 @@ namespace ViewModel
                 }
             }
         }
+
+        private bool errorTwo = false;
+
+        public bool ErrorTwo
+        {
+            get { return errorTwo; }
+            set
+            {
+                if (value != errorTwo)
+                {
+                    errorTwo = value;
+                    OnPropertyChanged("ErrorTwo");
+                }
+            }
+        }
+
         #endregion
 
         #region INotifyPropertyChanged implementation 
@@ -232,6 +264,7 @@ namespace ViewModel
             // A
             try
             {
+                ErrorOne = false;
                 solver.SolveA(rawInput);
 
                 // Cute animation
@@ -252,7 +285,8 @@ namespace ViewModel
             }
             catch
             {
-                MessageBox.Show($"For some reason, it was not possible to solve Part One:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
+                ErrorOne = true;
+                //MessageBox.Show($"For some reason, it was not possible to solve Part One:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
             }           
         }
 
@@ -261,6 +295,7 @@ namespace ViewModel
             // B
             try
             {
+                ErrorTwo = false;
                 solver.SolveB(rawInput);
 
                 // Cute animation
@@ -281,7 +316,8 @@ namespace ViewModel
             }
             catch
             {
-                MessageBox.Show($"For some reason, it was not possible to solve Part Two:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
+                ErrorTwo = true;
+                //MessageBox.Show($"For some reason, it was not possible to solve Part Two:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
             }
         }
 

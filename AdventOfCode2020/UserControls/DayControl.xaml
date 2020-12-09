@@ -13,7 +13,7 @@
         <SolidColorBrush x:Key="ActiveGreen" Color="#FF00FF00"/>
         <SolidColorBrush x:Key="DimGreen" Color="#FF53873E"/>
         <SolidColorBrush x:Key="Black" Color="Black"/>
-
+        <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter" />
     </UserControl.Resources>
 
     <Grid Background="Black" DataContext="{StaticResource dayvm}" Margin="0,0,6,0">
@@ -56,7 +56,31 @@
         <TextBox Text="{Binding ResultB, Mode=OneWay}" HorizontalAlignment="Left" Height="51" Margin="395,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="256" FontSize="36"
                                 Background="Black" Foreground="{StaticResource ActiveGreen}" BorderBrush="{StaticResource DimGreen}" />
         <Rectangle Fill="Lime" HorizontalAlignment="Left" Height="4" Margin="394,276,0,0" Stroke="Black" VerticalAlignment="Top" Width="{Binding WidthB}"/>
-        
+
         <TextBlock Text="{Binding Insult}" HorizontalAlignment="Left" Height="25" Margin="42,250,0,0" VerticalAlignment="Top" Width="624" Foreground="Red"/>
+        <Label Content="Oooops!!!" HorizontalAlignment="Left" Margin="448,59,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="Red" BorderBrush="Red" RenderTransformOrigin="0.5,0.5" BorderThickness="3" FontSize="24" Height="58" Width="140"
+               Visibility="{Binding ErrorOne, Converter={StaticResource VisibleIfTrueConverter}}">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="10"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Oooops!!!" HorizontalAlignment="Left" Margin="451,221,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="Red" BorderBrush="Red" RenderTransformOrigin="0.5,0.5" BorderThickness="3" FontSize="24" Height="58" Width="140"
+               Visibility="{Binding ErrorTwo, Converter={StaticResource VisibleIfTrueConverter}}">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="10"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+
+
     </Grid>
 </UserControl>
