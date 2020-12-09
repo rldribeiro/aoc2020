@@ -10,6 +10,8 @@ namespace Solvers.Wizards.Goncalo
     {
         private const int preamble = 25;
         private string[] input;
+        private int invalidNumber = 0;
+
         public Goncalo09(string name) : base(name)
         {
         }
@@ -24,6 +26,7 @@ namespace Solvers.Wizards.Goncalo
 
             GetInvalidNumber(ref result, ref visitedNumbers);
 
+            invalidNumber = result;
             return result;
         }
 
@@ -74,13 +77,7 @@ namespace Solvers.Wizards.Goncalo
 
         public override long SolvePartTwo(string[] input)
         {
-            int invalidNumber = 0;
             long result = 0;
-            Queue<(int number, HashSet<int> sums)> visitedNumbers = new Queue<(int number, HashSet<int> sums)>();
-
-            GetPreambleNumbers(ref visitedNumbers);
-
-            GetInvalidNumber(ref invalidNumber, ref visitedNumbers);
 
             long sum = 0;
             Queue<long> valuesResult = new Queue<long>();
