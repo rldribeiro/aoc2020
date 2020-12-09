@@ -46,37 +46,31 @@ namespace Solvers
 
         public override long SolvePartTwo(string[] input)
         {
-            long beg = 0;
-            long sum = 0;
-            
-            // Go backwards from the anomaly index: most likely better than sum up from begin index.
-            for (int i = anomalyIdx - 1; i > 0; i--)
+            // Queue / Dequeue idea by Grande Gonçalo
+
+            Queue<long> interval = new Queue<long>();                        
+            long sum = long.Parse(input[anomalyIdx - 1]);
+            interval.Enqueue(sum);
+
+            int idx = anomalyIdx - 2;
+
+            while(sum != currValue)
             {
-                long min = long.MaxValue;
-                long max = 0;
-
-                long.TryParse(input[i], out beg);
-                sum = beg;                
-
-                for (int j = i - 1; j > 1; j--)
+                long value;
+                if (sum < currValue)
                 {
-                    // Sum down all values
-                    long incr;
-                    long.TryParse(input[j], out incr);
-                    sum += incr;
-
-                    // Keep track of min and max of evaluated range
-                    long big = beg > incr ? beg : incr;
-                    long small = beg < incr ? beg : incr;
-                    max = big > max ? big : max;
-                    min = small < min ? small : min;
-                    
-                    // Found a sum
-                    if (sum == currValue)
-                        return min + max;
+                    value = long.Parse(input[idx]);
+                    interval.Enqueue(value);
+                    sum += value;
+                    idx--;
+                }
+                else
+                {
+                    sum -= interval.Dequeue();
                 }
             }
-            return -1;
+
+            return interval.Max() + interval.Min();
         }
 
         #endregion
