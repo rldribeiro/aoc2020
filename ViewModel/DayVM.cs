@@ -268,15 +268,14 @@ namespace ViewModel
                 solver.SolveA(rawInput);
 
                 // Cute animation
-                long solSize = solver.SolutionA;
-                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);                
-                for (long i = 0; i < solver.SolutionA; i += inc)
+                long animDuration = (solver.ElapsedTimeA.ElapsedMilliseconds + 1) * 3;
+                for (long i = 0; i < animDuration; i++)
                 {
-                    ResultA = i;
-                    WidthA = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionA) * 256);
+                    ResultA = (int)((Decimal.Divide(i, animDuration)) * solver.SolutionA);
+                    WidthA = (int)((Decimal.Divide(i, animDuration)) * 256);
                     await Task.Delay(1);
                 }
-                
+
                 // Final results
                 WidthA = 256;
                 ResultA = solver.SolutionA;
@@ -299,12 +298,12 @@ namespace ViewModel
                 solver.SolveB(rawInput);
 
                 // Cute animation
-                long solSize = solver.SolutionB;
-                int inc = solSize < 30 ? 1 : (int)Math.Floor(solSize / 30.0);
-                for (long i = 0; i < solver.SolutionB; i += inc)
+                long animDuration = (solver.ElapsedTimeB.ElapsedMilliseconds + 1) * 3;                
+
+                for (long i = 0; i < animDuration; i++)
                 {
-                    ResultB = i;
-                    WidthB = (int)Math.Ceiling(Decimal.Divide(i, solver.SolutionB) * 256);
+                    ResultB = (int)((Decimal.Divide(i, animDuration)) * solver.SolutionB);
+                    WidthB = (int)((Decimal.Divide(i, animDuration)) * 256);
                     await Task.Delay(1);
                 }
 

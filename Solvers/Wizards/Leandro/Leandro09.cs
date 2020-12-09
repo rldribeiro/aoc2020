@@ -28,7 +28,7 @@ namespace Solvers
             // Begin iterating already after the preamble
             for (int i = end; i < input.Length; i++)
             {
-                long.TryParse(input[i], out currValue);
+                currValue = long.Parse(input[i]);
 
                 if (!IsNumPossible(input, beg, end))
                 {
@@ -47,7 +47,6 @@ namespace Solvers
         public override long SolvePartTwo(string[] input)
         {
             // Queue / Dequeue idea by Grande Gonçalo
-
             Queue<long> interval = new Queue<long>();                        
             long sum = long.Parse(input[anomalyIdx - 1]);
             interval.Enqueue(sum);
@@ -69,7 +68,6 @@ namespace Solvers
                     sum -= interval.Dequeue();
                 }
             }
-
             return interval.Max() + interval.Min();
         }
 
@@ -84,10 +82,8 @@ namespace Solvers
             {
                 for (int j = i + 1; j < end; j++)
                 {
-                    int sum1 = 0;
-                    int sum2 = 0;
-                    int.TryParse(input[i], out sum1);
-                    int.TryParse(input[j], out sum2);
+                    int sum1 = int.Parse(input[i]);
+                    int sum2 = int.Parse(input[j]); ;                    
 
                     // If one is found, jump right out!
                     if (currValue == sum1 + sum2)
