@@ -62,11 +62,14 @@ namespace Solvers.Wizards.Goncalo
         private bool ValidateAndAddNewEntry(ref Queue<(int number, HashSet<int> sums)> visitedNumbers, int inputValue)
         {
             bool entryIsValid = false;
+            (int number, HashSet<int> sums) pairNumberSum;
 
             for (int i = 0; i < visitedNumbers.Count; i++)
             {
-                entryIsValid |= visitedNumbers.ElementAt(i).sums.Contains(inputValue);
-                visitedNumbers.ElementAt(i).sums.Add(inputValue + visitedNumbers.ElementAt(i).number);
+                pairNumberSum = visitedNumbers.ElementAt(i);
+
+                entryIsValid |= pairNumberSum.sums.Contains(inputValue);
+                pairNumberSum.sums.Add(inputValue + pairNumberSum.number);
             }
 
             visitedNumbers.Enqueue((inputValue, new HashSet<int>()));
