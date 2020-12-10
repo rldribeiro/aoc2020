@@ -54,11 +54,10 @@ namespace Solvers
             int idx = anomalyIdx - 2;
 
             while(sum != currValue)
-            {
-                long value;
+            {                
                 if (sum < currValue)
                 {
-                    value = long.Parse(input[idx]);
+                    long value = long.Parse(input[idx]);
                     interval.Enqueue(value);
                     sum += value;
                     idx--;

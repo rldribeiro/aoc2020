@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Commands\SolveCommand.cs" />
     <Compile Include="DayVM.cs" />
-    <Compile Include="Hogwarts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

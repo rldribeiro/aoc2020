@@ -9,9 +9,6 @@ using System.Windows;
 
 namespace Solvers
 {
-    /// <summary>    
-    /// --- Day 4 ---    
-    /// </summary>
     public class DaySolver
     {
         #region Constructor

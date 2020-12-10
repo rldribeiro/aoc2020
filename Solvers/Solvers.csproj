@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DaySolver.cs" />
+    <Compile Include="Hogwarts.cs" />
     <Compile Include="Wizards\Fabio\Fabio01.cs" />
     <Compile Include="Wizards\Fabio\Fabio02.cs" />
     <Compile Include="Wizards\Fabio\Fabio03.cs" />

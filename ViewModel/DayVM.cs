@@ -20,10 +20,14 @@ namespace ViewModel
         private long resultA;
         private double elapsedTimeA;
         private double elapsedTicksA;
+        private int widthA;
+        private bool errorOne = false;
 
         private long resultB;
         private double elapsedTimeB;
         private double elapsedTicksB;
+        private int widthB;
+        private bool errorTwo = false;
 
         private string insult;
 
@@ -129,9 +133,6 @@ namespace ViewModel
                 }
             }
         }
-
-        private int widthA;
-
         public int WidthA
         {
             get { return widthA; }
@@ -144,24 +145,6 @@ namespace ViewModel
                 }
             }
         }
-
-        private int widthB;
-
-        public int WidthB
-        {
-            get { return widthB; }
-            set
-            {
-                if (value != widthB)
-                {
-                    widthB = value;
-                    OnPropertyChanged("WidthB");
-                }
-            }
-        }
-
-        private bool errorOne = false;
-
         public bool ErrorOne
         {
             get { return errorOne; }
@@ -174,7 +157,6 @@ namespace ViewModel
                 }
             }
         }
-
 
         // B        
         public long ResultB
@@ -213,9 +195,18 @@ namespace ViewModel
                 }
             }
         }
-
-        private bool errorTwo = false;
-
+        public int WidthB
+        {
+            get { return widthB; }
+            set
+            {
+                if (value != widthB)
+                {
+                    widthB = value;
+                    OnPropertyChanged("WidthB");
+                }
+            }
+        }
         public bool ErrorTwo
         {
             get { return errorTwo; }
@@ -265,6 +256,9 @@ namespace ViewModel
             try
             {
                 ErrorOne = false;
+                ElapsedTimeA = 0;
+                ElapsedTicksA = 0;
+
                 solver.SolveA(rawInput);
 
                 // Cute animation
@@ -282,7 +276,7 @@ namespace ViewModel
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
                 ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;                
             }
-            catch
+            catch (Exception ex)
             {
                 ErrorOne = true;
                 //MessageBox.Show($"For some reason, it was not possible to solve Part One:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
@@ -295,6 +289,9 @@ namespace ViewModel
             try
             {
                 ErrorTwo = false;
+                ElapsedTimeB = 0;
+                ElapsedTicksB = 0;
+
                 solver.SolveB(rawInput);
 
                 // Cute animation
@@ -313,7 +310,7 @@ namespace ViewModel
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
             }
-            catch
+            catch (Exception ex)
             {
                 ErrorTwo = true;
                 //MessageBox.Show($"For some reason, it was not possible to solve Part Two:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
