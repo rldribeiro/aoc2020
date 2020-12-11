@@ -17,13 +17,13 @@ namespace ViewModel
 
         private string rawInput;
 
-        private long resultA;
+        private string resultA;
         private double elapsedTimeA;
         private double elapsedTicksA;
         private int widthA;
         private bool errorOne = false;
 
-        private long resultB;
+        private string resultB;
         private double elapsedTimeB;
         private double elapsedTicksB;
         private int widthB;
@@ -97,7 +97,7 @@ namespace ViewModel
         }
 
         // A
-        public long ResultA
+        public string ResultA
         {
             get { return resultA; }
             set
@@ -159,7 +159,7 @@ namespace ViewModel
         }
 
         // B        
-        public long ResultB
+        public string ResultB
         {
             get { return resultB; }
             set
@@ -265,19 +265,19 @@ namespace ViewModel
                 long animDuration = (solver.ElapsedTimeA.ElapsedMilliseconds + 1) * 3;
                 for (long i = 0; i < animDuration; i++)
                 {
-                    ResultA = (int)((Decimal.Divide(i, animDuration)) * solver.SolutionA);
+                    ResultA = ((Decimal.Divide(i, animDuration)) * solver.SolutionA).ToString();
                     WidthA = (int)((Decimal.Divide(i, animDuration)) * 256);
                     await Task.Delay(1);
                 }
 
                 // Final results
                 WidthA = 256;
-                ResultA = solver.SolutionA;
+                ResultA = solver.SolutionA.ToString();
                 ElapsedTimeA = solver.ElapsedTimeA.ElapsedMilliseconds;
                 ElapsedTicksA = solver.ElapsedTimeA.ElapsedTicks;                
             }
             catch (Exception ex)
-            {
+            {                
                 ErrorOne = true;
                 //MessageBox.Show($"For some reason, it was not possible to solve Part One:\neither the wizard {selectedWizard} didn't write it, or the magic was bullshit.");
             }           
@@ -299,14 +299,14 @@ namespace ViewModel
 
                 for (long i = 0; i < animDuration; i++)
                 {
-                    ResultB = (int)((Decimal.Divide(i, animDuration)) * solver.SolutionB);
+                    ResultB = ((Decimal.Divide(i, animDuration)) * solver.SolutionB).ToString();
                     WidthB = (int)((Decimal.Divide(i, animDuration)) * 256);
                     await Task.Delay(1);
                 }
 
                 // Final results
                 WidthB = 256;
-                ResultB = solver.SolutionB;
+                ResultB = solver.SolutionB.ToString();
                 ElapsedTimeB = solver.ElapsedTimeB.ElapsedMilliseconds;
                 ElapsedTicksB = solver.ElapsedTimeB.ElapsedTicks;
             }
