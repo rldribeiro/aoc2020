@@ -83,6 +83,9 @@ namespace Solvers
                 case 11:
                     if (wizardName.Equals(GONCALO)) return new Goncalo11(GONCALO);
                     break;
+                case 12:
+                    if (wizardName.Equals(GONCALO)) return new Goncalo12(GONCALO);
+                    break;
             }
 
             return wizard;
