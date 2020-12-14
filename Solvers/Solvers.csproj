@@ -65,6 +65,7 @@
     <Compile Include="Wizards\Leandro\Leandro02.cs" />
     <Compile Include="Wizards\Leandro\Leandro03.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Wizards\Leandro\Leandro11.cs" />
     <Compile Include="Wizards\Leandro\Leandro10.cs" />
     <Compile Include="Wizards\Leandro\Leandro09.cs" />
     <Compile Include="Wizards\Leandro\Leandro08.cs" />

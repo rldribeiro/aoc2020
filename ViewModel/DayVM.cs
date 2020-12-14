@@ -263,6 +263,7 @@ namespace ViewModel
 
                 // Cute animation
                 long animDuration = (solver.ElapsedTimeA.ElapsedMilliseconds + 1) * 3;
+                animDuration = animDuration > 100 ? 100 : animDuration;
                 for (long i = 0; i < animDuration; i++)
                 {
                     ResultA = ((Decimal.Divide(i, animDuration)) * solver.SolutionA).ToString();
@@ -295,7 +296,8 @@ namespace ViewModel
                 solver.SolveB(rawInput);
 
                 // Cute animation
-                long animDuration = (solver.ElapsedTimeB.ElapsedMilliseconds + 1) * 3;                
+                long animDuration = (solver.ElapsedTimeB.ElapsedMilliseconds + 1) * 3;
+                animDuration = animDuration > 100 ? 100 : animDuration;
 
                 for (long i = 0; i < animDuration; i++)
                 {
